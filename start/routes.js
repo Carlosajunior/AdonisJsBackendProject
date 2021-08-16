@@ -1,5 +1,7 @@
 'use strict'
 
+const UsuarioController = require('../app/Controllers/Http/UsuarioController')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -17,3 +19,6 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+Route.post('/cadastrarUsuario', 'UsuarioController.cadastrarUsuario')
+Route.post('/login', 'UsuarioController.loginUsuario')

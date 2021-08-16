@@ -9,10 +9,10 @@ class UsuariosSchema extends Schema {
       table.increments('id').notNullable().unique()
       table.string('login', 125).notNullable().unique()
       table.string('senha', 50).notNullable()
-      table.integer('CPF').notNullable().unique()
+      table.string('CPF', 11).notNullable().unique()
       table.string('email', 125).notNullable().unique()
-      table.integer('telefone')
-      table.timestamp('data_nascimento').notNullable()
+      table.bigInteger('telefone')
+      table.date('data_nascimento').notNullable()
       table.timestamps()
     })
   }
