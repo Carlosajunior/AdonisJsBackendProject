@@ -29,10 +29,10 @@ module.exports = {
   */
   session: {
     serializer: "lucid",
-    model: "App/Models/Usuario",
+    model: "App/Models/User",
     scheme: "session",
-    uid: "login",
-    password: "senha",
+    uid: "email",
+    password: "password",
   },
 
   /*
@@ -67,10 +67,10 @@ module.exports = {
   */
   jwt: {
     serializer: "lucid",
-    model: "App/Models/Usuario",
+    model: "App/Models/User",
     scheme: "jwt",
-    uid: "login",
-    password: "senha",
+    uid: "email",
+    password: "password",
     options: {
       secret: Env.get("APP_KEY"),
     },

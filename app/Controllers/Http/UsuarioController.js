@@ -1,29 +1,32 @@
 "use strict";
 
-const Usuarios = use("App/Models/Usuario");
+const Users = use("App/Models/User");
 
 class UsuarioController {
-  async cadastrarUsuario({ request }) {
+  async cadastrarUsuario({ request, response }) {
     const parametros = request.only([
-      "login",
       "email",
-      "senha",
-      "CPF",
+      "password",
+      "username",
       "telefone",
       "data_nascimento",
+      "cpf",
     ]);
-    const usuario = await Usuarios.create(parametros);
-    return usuario;
+    try {
+      const usuario = await Users.create(parametros);
+      return response.ok(usuario);
+    } catch (error) {
+      return response.send(error, 401);
+    }
   }
 
   async loginUsuario({ request, response, auth }) {
     try {
-      const { login, senha } = request.all();
-      const token = await auth.attempt(login, senha);
-      console.log(token);
-      return response(token, 201);
+      const { email, password } = request.all();
+      const token = await auth.attempt(email, password);
+      return token;
     } catch (error) {
-      return response.send(error, 404);
+      return response.send(error, 401);
     }
   }
 }
