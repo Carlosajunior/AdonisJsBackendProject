@@ -1,6 +1,7 @@
-'use strict'
+"use strict";
 
-const UsuarioController = require('../app/Controllers/Http/UsuarioController')
+const EmpresaController = require("../app/Controllers/Http/EmpresaController");
+const UsuarioController = require("../app/Controllers/Http/UsuarioController");
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,12 @@ const UsuarioController = require('../app/Controllers/Http/UsuarioController')
 */
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
-const Route = use('Route')
+const Route = use("Route");
 
-Route.on('/').render('welcome')
+Route.on("/").render("welcome");
 
-Route.post('/cadastrarUsuario', 'UsuarioController.cadastrarUsuario')
-Route.post('/login', 'UsuarioController.loginUsuario')
+Route.post("/cadastrarUsuario", "UsuarioController.cadastrarUsuario");
+Route.post("/login", "UsuarioController.loginUsuario");
 
-Route.post('/cadastrarEmpresa', 'EmpresaController.cadastrarEmpresa')
+Route.post("/cadastrarEmpresa", "EmpresaController.cadastrarEmpresa");
+Route.put("/editarEmpresa", "EmpresaController.editarEmpresa");
