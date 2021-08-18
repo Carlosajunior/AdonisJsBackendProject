@@ -7,7 +7,6 @@ class UsuarioController {
     const parametros = request.only([
       "email",
       "password",
-      "username",
       "telefone",
       "data_nascimento",
       "cpf",
