@@ -13,6 +13,7 @@ class EmpresasSchema extends Schema {
       table.string("razao_social", 125).notNullable();
       table
         .integer("empresas_user_id")
+        .notNullable()
         .unsigned()
         .references("id")
         .inTable("users");
