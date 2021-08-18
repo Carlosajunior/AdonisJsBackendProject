@@ -27,27 +27,26 @@ class EmpresaController {
   }
 
   async editarEmpresa({ request, response }) {
+    const idEmpresa = request.input("id");
     try {
       if (request.input("nome_dono_da_empresa"))
         await Empresa.query()
-          .where("id", request.input("id"))
+          .where("id", idEmpresa)
           .update({
             nome_dono_da_empresa: request.input("nome_dono_da_empresa"),
           });
       if (request.input("razao_social"))
         await Empresa.query()
-          .where("id", request.input("id"))
+          .where("id", idEmpresa)
           .update({ razao_social: request.input("razao_social") });
       if (request.input("nome_fantasia"))
         await Empresa.query()
-          .where("id", request.input("id"))
+          .where("id", idEmpresa)
           .update({ nome_fantasia: request.input("nome_fantasia") });
     } catch (error) {
       return response.unauthorized(error);
     }
-    const empresa = await Empresa.query()
-      .where("id", request.input("id"))
-      .fetch();
+    const empresa = await Empresa.query().where("id", idEmpresa).fetch();
     return response.ok(empresa);
   }
 
