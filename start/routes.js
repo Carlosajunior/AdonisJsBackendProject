@@ -22,3 +22,5 @@ Route.on('/').render('welcome')
 
 Route.post('/cadastrarUsuario', 'UsuarioController.cadastrarUsuario')
 Route.post('/login', 'UsuarioController.loginUsuario')
+
+Route.post('/cadastrarEmpresa', 'EmpresaController.cadastrarEmpresa')

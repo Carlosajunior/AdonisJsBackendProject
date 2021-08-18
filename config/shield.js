@@ -134,7 +134,11 @@ module.exports = {
   csrf: {
     enable: true,
     methods: ['POST', 'PUT', 'DELETE'],
-    filterUris: ['/cadastrarUsuario', '/login'],
+    filterUris: [
+      '/cadastrarUsuario', 
+      '/login',
+      '/cadastrarEmpresa'
+      ],
     cookieOptions: {
       httpOnly: false,
       sameSite: true,

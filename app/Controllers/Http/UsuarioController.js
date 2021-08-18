@@ -3,6 +3,7 @@
 const Users = use("App/Models/User");
 
 class UsuarioController {
+  
   async cadastrarUsuario({ request, response }) {
     const parametros = request.only([
       "email",
@@ -16,7 +17,7 @@ class UsuarioController {
       const usuario = await Users.create(parametros);
       return response.ok(usuario);
     } catch (error) {
-      return response.send(error, 401);
+      return response.unauthorized("Dados incorretos");
     }
   }
 
@@ -26,7 +27,7 @@ class UsuarioController {
       const token = await auth.attempt(email, password);
       return token;
     } catch (error) {
-      return response.send(error, 401);
+      return response.unauthorized("Credenciais inválidas");
     }
   }
 }
