@@ -8,7 +8,7 @@ class EmpresasSchema extends Schema {
     this.create("empresas", (table) => {
       table.increments("id").notNullable().unique();
       table.string("nome_dono_da_empresa", 125).notNullable();
-      table.integer("cnpj").notNullable().unique();
+      table.string("cnpj", 14).notNullable().unique();
       table.string("nome_fantasia", 125).notNullable();
       table.string("razao_social", 125).notNullable();
       table
