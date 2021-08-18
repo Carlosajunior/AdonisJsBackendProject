@@ -23,7 +23,7 @@ class UsuarioController {
     try {
       const { email, password } = request.all();
       const token = await auth.attempt(email, password);
-      return token;
+      return token.token;
     } catch (error) {
       return response.unauthorized("Credenciais inválidas");
     }
