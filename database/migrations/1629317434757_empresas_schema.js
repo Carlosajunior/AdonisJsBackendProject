@@ -11,6 +11,11 @@ class EmpresasSchema extends Schema {
       table.integer("CNPJ").notNullable().unique();
       table.string("nome_fantasia", 125).notNullable();
       table.string("razao_social", 125).notNullable();
+      table
+        .integer("empresas_user_id")
+        .unsigned()
+        .references("id")
+        .inTable("users");
       table.timestamps();
     });
   }
