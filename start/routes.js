@@ -24,7 +24,16 @@ Route.on("/").render("welcome");
 Route.post("/cadastrarUsuario", "UsuarioController.cadastrarUsuario");
 Route.post("/login", "UsuarioController.loginUsuario");
 
-Route.post("/cadastrarEmpresa", "EmpresaController.cadastrarEmpresa");
-Route.put("/editarEmpresa", "EmpresaController.editarEmpresa");
-Route.get("/listarEmpresas", "EmpresaController.listarEmpresas");
-Route.delete("/excluirEmpresa", "EmpresaController.excluirEmpresa");
+Route.post(
+  "/cadastrarEmpresa",
+  "EmpresaController.cadastrarEmpresa"
+).middleware("auth");
+Route.put("/editarEmpresa", "EmpresaController.editarEmpresa").middleware(
+  "auth"
+);
+Route.get("/listarEmpresas", "EmpresaController.listarEmpresas").middleware(
+  "auth"
+);
+Route.delete("/excluirEmpresa", "EmpresaController.excluirEmpresa").middleware(
+  "auth"
+);
