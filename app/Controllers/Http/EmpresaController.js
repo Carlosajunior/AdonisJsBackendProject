@@ -18,6 +18,7 @@ class EmpresaController {
         "cnpj",
         "razao_social",
         "nome_fantasia",
+        "empresas_user_id",
       ]);
       const empresa = await Empresa.create(parametros);
       return response.created(empresa);
@@ -55,8 +56,15 @@ class EmpresaController {
   // })
 
   async listarEmpresas({ request, response }) {
-    const idDonoEmpresa = request.input("id");
-    const listaEmpresas = await Empresa.find("id");
+    const idDonoEmpresa = request.input("empresas_user_id");
+    try {
+      const listaEmpresas = await Empresa.query()
+        .where("empresas_user_id", idDonoEmpresa)
+        .fetch();
+      return response.ok(listaEmpresas);
+    } catch (error) {
+      return response.unauthorized(error);
+    }
   }
 }
 
