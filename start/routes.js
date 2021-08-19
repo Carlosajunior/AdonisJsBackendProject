@@ -26,3 +26,4 @@ Route.post("/login", "UsuarioController.loginUsuario");
 
 Route.post("/cadastrarEmpresa", "EmpresaController.cadastrarEmpresa");
 Route.put("/editarEmpresa", "EmpresaController.editarEmpresa");
+Route.get("/listarEmpresas", "EmpresaController.listarEmpresas");
