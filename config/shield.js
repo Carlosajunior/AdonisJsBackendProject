@@ -138,6 +138,7 @@ module.exports = {
       "/login",
       "/cadastrarEmpresa",
       "/editarEmpresa",
+      "/excluirEmpresa",
     ],
     cookieOptions: {
       httpOnly: false,

@@ -66,6 +66,17 @@ class EmpresaController {
       return response.unauthorized(error);
     }
   }
+
+  async excluirEmpresa({ request, response }) {
+    const idEmpresa = request.input("idEmpresa");
+    try {
+      const empresa = await Empresa.find(idEmpresa);
+      empresa.delete();
+      return response.ok(empresa);
+    } catch (error) {
+      return response.unauthorized(error);
+    }
+  }
 }
 
 module.exports = EmpresaController;
