@@ -68,7 +68,8 @@ class EmpresaController {
   }
 
   async excluirEmpresa({ request, response }) {
-    const idEmpresa = request.input("idEmpresa");
+    const queryParams = request.get();
+    const idEmpresa = queryParams.empresa_user_id;
     try {
       const empresa = await Empresa.find(idEmpresa);
       empresa.delete();

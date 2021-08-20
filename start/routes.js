@@ -31,9 +31,10 @@ Route.post(
 Route.put("/editarEmpresa", "EmpresaController.editarEmpresa").middleware(
   "auth"
 );
-Route.get("/listarEmpresas", "EmpresaController.listarEmpresas").middleware(
-  "auth"
-);
+Route.get(
+  "/listarEmpresas/:empresa_user_id",
+  "EmpresaController.listarEmpresas"
+).middleware("auth");
 Route.delete("/excluirEmpresa", "EmpresaController.excluirEmpresa").middleware(
   "auth"
 );
