@@ -134,6 +134,8 @@ module.exports = {
     enable: true,
     methods: ["POST", "PUT", "DELETE"],
     filterUris: [
+      "/obterJSON",
+      "/escreverJSON",
       "/cadastrarUsuario",
       "/login",
       "/cadastrarEmpresa",
