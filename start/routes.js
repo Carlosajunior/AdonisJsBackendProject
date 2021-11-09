@@ -1,5 +1,5 @@
 "use strict";
-
+const ConsumirAPI = require("../app/Controllers/Http/ConsumirAPIController");
 const EmpresaController = require("../app/Controllers/Http/EmpresaController");
 const UsuarioController = require("../app/Controllers/Http/UsuarioController");
 
@@ -23,6 +23,9 @@ Route.on("/").render("welcome");
 
 Route.post("/cadastrarUsuario", "UsuarioController.cadastrarUsuario");
 Route.post("/login", "UsuarioController.loginUsuario");
+
+Route.get("/obterJSON", "ConsumirAPI.obterJSON");
+Route.post("/escreverJSON","ConsumirAPI.escreverJSON");
 
 Route.post(
   "/cadastrarEmpresa",
