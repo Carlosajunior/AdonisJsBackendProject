@@ -1,3 +1,4 @@
+"use strict";
 const Axios = require("axios");
 
 class ConsumirAPIController{

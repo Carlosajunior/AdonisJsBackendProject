@@ -24,8 +24,8 @@ Route.on("/").render("welcome");
 Route.post("/cadastrarUsuario", "UsuarioController.cadastrarUsuario");
 Route.post("/login", "UsuarioController.loginUsuario");
 
-Route.get("/obterJSON", "ConsumirAPI.obterJSON");
-Route.post("/escreverJSON","ConsumirAPI.escreverJSON");
+Route.get("/obterJSON", "EmpresaController.obterJSON");
+Route.post("/escreverJSON","EmpresaController.escreverJSON");
 
 Route.post(
   "/cadastrarEmpresa",
